@@ -1,0 +1,32 @@
+{
+  "name": "motoroute_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodasistemas/motoroute_project.git"
+  },
+  "keywords": [
+    "motorista",
+    "online",
+    "uber",
+    "mapas",
+    "passageiro",
+    "node",
+    "php",
+    "mysql"
+  ],
+  "author": "RodaSistemas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodasistemas/motoroute_project/issues"
+  },
+  "homepage": "https://github.com/rodasistemas/motoroute_project#readme",
+  "dependencies": {
+    "request-promise": "^4.2.4"
+  }
+}
