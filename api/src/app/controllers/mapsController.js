@@ -21,6 +21,9 @@ const geocoder = NodeGeocoder({
 //===========================================================================
 // Rotas
 //===========================================================================
+router.get("/test",async(req,res,next)=>{
+  res.send("Teste");
+});
 router.post("/autocomplete",async(req,res,next)=>{
   const {dados} = req.body;
 
