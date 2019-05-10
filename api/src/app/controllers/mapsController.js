@@ -22,7 +22,8 @@ const geocoder = NodeGeocoder({
 // Rotas
 //===========================================================================
 router.get("/test",async(req,res,next)=>{
-  res.send("Teste");
+  const data = await geocodes.list().then(data=>{ return data});
+  res.send(data);
 });
 
 
