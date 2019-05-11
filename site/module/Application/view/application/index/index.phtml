@@ -1,0 +1,57 @@
+<section>
+    <div id='map' style="height:400px;"></div>
+
+</section>
+<script>
+mapboxgl.accessToken =
+    'pk.eyJ1Ijoicm9kYXNpc3RlbWFzIiwiYSI6ImNqdjFya2tkNTF4bng0ZXBwN3Jycnh2YzcifQ.z-GeU1opaUpCll2b_m5tDA';
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+
+
+} else {
+    alert("Não é possível pegar a sua localização pelo navegador.");
+}
+
+function showPosition(position) {
+
+    var posicao = [position.coords.longitude, position.coords.latitude];
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        center: posicao, // starting position [lng, lat]
+        zoom: 18 // starting zoom
+    });
+    map.loadImage(
+        //'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png',
+        'img/marker-origem.png',
+        function(error, image) {
+            if (error) throw error;
+            map.addImage('cat', image);
+            map.addLayer({
+                "id": "points",
+                "type": "symbol",
+                "source": {
+                    "type": "geojson",
+                    "data": {
+                        "type": "FeatureCollection",
+                        "features": [{
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": posicao
+                            }
+                        }]
+                    }
+                },
+                "layout": {
+                    "icon-image": "cat",
+                    "icon-size": 0.20
+                }
+            });
+        });
+}
+
+getLocation();
+</script>
