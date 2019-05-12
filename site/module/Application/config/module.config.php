@@ -34,11 +34,22 @@ return [
                     ],
                 ],
             ],
+            'login' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/login[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\LoginController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+            Controller\LoginController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
