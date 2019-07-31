@@ -6,7 +6,7 @@ const db = require("knex")({
   debug:false,
   asyncStackTraces:true,
   connection:{
-    host: 'localhost',
+    host: 'motoroute.ddns.net',
     port: '3306',
     user: 'ubermoto',
     password: 'senhasegura@123',
