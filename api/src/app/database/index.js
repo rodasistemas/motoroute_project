@@ -9,7 +9,7 @@ const db = require("knex")({
     host: 'motoroute.ddns.net',
     port: '3306',
     user: 'ubermoto',
-    password: 'senhasegura@123',
+    password: 'ubermoto',
     database: 'ubermoto'
   }
 });
