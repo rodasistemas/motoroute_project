@@ -29,7 +29,7 @@ router.get("/test",async(req,res,next)=>{
 router.post('/geocode',async(req,res,next)=>{
   const {dados} = req.body;
   console.log(dados);
-  var retorno = JSON.stringify(prepareReturn(await searchGeocode(dados)));
+  var retorno = JSON.stringify(await searchGeocode(dados));
   res.status(200).send(retorno);
 });
 
