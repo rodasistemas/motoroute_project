@@ -30,6 +30,7 @@ router.post('/geocode',async(req,res,next)=>{
   const {dados} = req.body;
   console.log(dados);
   var retorno = JSON.stringify(await searchGeocode(dados));
+  console.log(retorno);
   res.status(200).send(retorno);
 });
 
@@ -86,8 +87,6 @@ function prepareReturn (retorno){
 async function searchGeocode(dados){
   const banco = await geocodes.searchAll(dados).then((data)=>{return data});
   if(Array.isArray(banco) && banco.length>0){
-    console.log('banco');
-    console.log(banco);
     return banco;
   }else{
     console.log('API');
@@ -106,12 +105,7 @@ async function searchGeocode(dados){
 
       }
         return resp;
-
-
-
-
   });
-
   }
 }
 
