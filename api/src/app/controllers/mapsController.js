@@ -29,7 +29,7 @@ router.get("/test",async(req,res,next)=>{
 router.post('/geocode',async(req,res,next)=>{
   const {dados} = req.body;
   console.log(dados);
-  var retorno = JSON.stringify(await searchGeocode(dados));
+  var retorno = await searchGeocode(dados);
   console.log(retorno);
   res.status(200).send(retorno);
 });
@@ -101,10 +101,10 @@ async function searchGeocode(dados){
         }
       };
       if(data.length>0){
-	resp = await geocodes.save(data);
+	await geocodes.save(data);
 
       }
-        return resp;
+        return data;
   });
   }
 }
