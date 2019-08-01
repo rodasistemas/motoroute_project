@@ -101,6 +101,7 @@ async function searchGeocode(dados){
         }
       };
       if(data.length>0){
+	console.log('Data',data);
 	await geocodes.save(data);
 
       }
