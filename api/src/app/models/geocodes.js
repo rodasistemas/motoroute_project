@@ -22,10 +22,7 @@ const schema = {
           console.log("Salvando Dados");
           db("geocodes").clearCounters().clearSelect().clearWhere();
 
-          return db("geocodes").insert(dados)
-            .then((data)=>{
-              return data;
-            });
+          db("geocodes").insert(dados);
     },
     searchAll: async function(search){
       console.log("Fazendo Busca por "+ search);
