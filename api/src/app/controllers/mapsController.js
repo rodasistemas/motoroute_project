@@ -26,9 +26,10 @@ router.get("/test",async(req,res,next)=>{
   res.send(data);
 });
 
-router.post('/testa',async(req,res,next)=>{
+router.post('/geocode',async(req,res,next)=>{
   const {dados} = req.body;
-  console.log(dados);
+  var retorno = JSON.stringify(prepareReturn(await searchGeocode(dados)));
+  res.status(200).send(retorno);
 });
 
 router.post("/autocomplete",async(req,res,next)=>{
@@ -89,7 +90,7 @@ async function searchGeocode(dados){
     return banco;
   }else{
     console.log('API');
-    geocoder.geocode(dados+ ' Brazil' ,async function(err, resp) {
+    geocoder.geocode(dados,async function(err, resp) {
       var data = [];
       for(i=0; i< resp.length; i++){
         if(resp[i]['streetName']){
