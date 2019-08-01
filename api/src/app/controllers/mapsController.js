@@ -29,7 +29,6 @@ router.get("/test",async(req,res,next)=>{
 router.post('/geocode',async(req,res,next)=>{
   const {dados} = req.body;
   geocoder.geocode(dados,async function(err, resp) { 
-	console.log(resp);
   	res.status(200).send(resp);
 });
 
