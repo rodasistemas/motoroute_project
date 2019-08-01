@@ -21,7 +21,7 @@ const schema = {
           var dados = data;
           console.log("Salvando Dados");
           db("geocodes").clearCounters().clearSelect().clearWhere();
-          console.log(dados);
+
           return db("geocodes").insert(dados)
             .then((data)=>{
               return data;
