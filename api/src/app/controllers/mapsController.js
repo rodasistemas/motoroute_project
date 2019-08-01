@@ -28,6 +28,7 @@ router.get("/test",async(req,res,next)=>{
 
 router.post('/geocode',async(req,res,next)=>{
   const {dados} = req.body;
+  console.log(dados);
   var retorno = JSON.stringify(prepareReturn(await searchGeocode(dados)));
   res.status(200).send(retorno);
 });
@@ -38,7 +39,7 @@ router.post("/autocomplete",async(req,res,next)=>{
 if(dados){
   // Verifica se existe o geocode no banco de dados
   var retorno = JSON.stringify(prepareReturn(await searchGeocode(dados)));
-  res.status(200).send(retorno);
+  return res.status(200).send(retorno);
   console.log(retorno);
 }
 
