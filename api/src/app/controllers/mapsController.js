@@ -28,10 +28,12 @@ router.get("/test",async(req,res,next)=>{
 
 router.post('/geocode',async(req,res,next)=>{
   const {dados} = req.body;
-  console.log(dados);
-  var retorno = await searchGeocode(dados);
-  console.log(retorno);
-  res.status(200).send(retorno);
+  geocoder.geocode(dados,async function(err, resp) { 
+	console.log(resp);
+  	res.status(200).send(resp);
+});
+
+
 });
 
 router.post("/autocomplete",async(req,res,next)=>{
