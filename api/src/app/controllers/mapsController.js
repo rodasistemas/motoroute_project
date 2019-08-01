@@ -17,7 +17,7 @@ const geocoder = NodeGeocoder({
 //===========================================================================
 //Autentication
 //===========================================================================
-//router.use(authMiddleware);
+router.use(authMiddleware);
 //===========================================================================
 // Rotas
 //===========================================================================
@@ -61,11 +61,11 @@ function prepareReturn (retorno){
 	if(ret['streetName'])
 		lbl = lbl+ret['streetName'];
 	if(ret['city'])
-		lbl = lbl+' '+ret['city'];
+		lbl = lbl+', '+ret['city'];
 	if(ret['state'])
-		lbl = lbl+' '+ret['state'];
+		lbl = lbl+', '+ret['state'];
 	if(ret['zipcode'])
-		lbl = lbl+' '+ret['zipcode'];
+		lbl = lbl+', '+ret['zipcode'];
 //	if(ret['country'])
 //		lbl = lbl+' '+ret['country'];
 
