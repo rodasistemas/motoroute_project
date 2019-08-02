@@ -42,7 +42,7 @@ if(dados){
   // Verifica se existe o geocode no banco de dados
   var retorno = JSON.stringify(prepareReturn(await searchGeocode(dados)));
   return res.status(200).send(retorno);
-  console.log(retorno);
+
 }
 
 
