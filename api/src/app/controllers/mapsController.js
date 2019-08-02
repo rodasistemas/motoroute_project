@@ -93,6 +93,7 @@ async function searchGeocode(dados){
     console.log('API');
     geocoder.geocode(dados,async function(err, resp) {
       var data = [];
+console.log('Resp len', resp.length);
       for(i=0; i< resp.length; i++){
         if(resp[i]['streetName']){
           data[i] = resp[i];
