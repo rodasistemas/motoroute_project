@@ -22,9 +22,12 @@ const schema = {
           console.log("Salvando Dados", dados);
 	  
           db("geocodes").clearCounters().clearSelect().clearWhere();
+	  for(i=0; i<data.length;i++){
+		db("geocodes").insert(data[i]);
+		console.log('Dado Unico',data[i]);
+	  }
 
-          var inseriu = db("geocodes").insert(dados);
-console.log('inseriu',inseriu);
+
     },
     searchAll: async function(search){
       console.log("Fazendo Busca por "+ search);
