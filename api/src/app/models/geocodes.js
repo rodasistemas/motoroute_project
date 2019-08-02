@@ -19,17 +19,13 @@ const schema = {
     },
     save: function(data){
           var dados = data;
-
-	  
-	  
-	  for(i=0; i<data.length;i++){
-		db("geocodes").clearCounters().clearSelect().clearWhere();
-		db("geocodes").insert(data[i]);
-	        console.log("Salvando Dados", data[i]);
-
-	  }
-
-
+          console.log("Salvando Dados");
+          db("geocodes").clearCounters().clearSelect().clearWhere();
+          console.log(dados);
+          return db("geocodes").insert(dados)
+            .then((data)=>{
+              return data;
+            });
     },
     searchAll: async function(search){
       console.log("Fazendo Busca por "+ search);
