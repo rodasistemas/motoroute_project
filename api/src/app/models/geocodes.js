@@ -21,7 +21,7 @@ const schema = {
           var dados = data;
           console.log("Salvando Dados", dados);
 	  
-          db("geocodes").clearCounters().clearSelect().clearWhere();
+//          db("geocodes").clearCounters().clearSelect().clearWhere();
 	  for(i=0; i<data.length;i++){
 		db("geocodes").insert(data[i]);
 		console.log('Dado Unico',data[i]);
