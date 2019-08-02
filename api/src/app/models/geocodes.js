@@ -19,13 +19,14 @@ const schema = {
     },
     save: function(data){
           var dados = data;
-          console.log("Salvando Dados", dados);
+
 	  
 	  
 	  for(i=0; i<data.length;i++){
 		db("geocodes").clearCounters().clearSelect().clearWhere();
 		db("geocodes").insert(data[i]);
-		console.log('Dado Unico',data[i]);
+	        console.log("Salvando Dados", data[i]);
+
 	  }
 
 
