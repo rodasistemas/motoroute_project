@@ -30,6 +30,7 @@ const schema = {
     searchAll: async function(search){
       console.log("Fazendo Busca por "+ search);
       var busca = "%"+search.replace(/\s/g,"%")+"%";
+console.log(busca);
 
       db("geocodes").clearWhere();
       db("geocodes").clearSelect();
