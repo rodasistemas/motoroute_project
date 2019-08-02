@@ -19,7 +19,8 @@ const schema = {
     },
     save: function(data){
           var dados = data;
-          console.log("Salvando Dados");
+          console.log("Salvando Dados", dados);
+	  
           db("geocodes").clearCounters().clearSelect().clearWhere();
 
           db("geocodes").insert(dados);
