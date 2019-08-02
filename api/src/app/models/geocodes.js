@@ -35,7 +35,7 @@ console.log(busca);
       db("geocodes").clearWhere();
       db("geocodes").clearSelect();
 
-      return db("geocodes").select("*").where(db.raw("UPPER(all_fields) like UPPER(?)", [busca])).then((data)=>{
+      return db("geocodes").select("select DISTINCT streetName, longitude, latitude").where(db.raw("UPPER(all_fields) like UPPER(?)", [busca])).then((data)=>{
 
 
         if(data.length>0){
