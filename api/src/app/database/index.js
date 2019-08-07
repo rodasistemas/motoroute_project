@@ -6,10 +6,10 @@ const db = require("knex")({
   debug:false,
   asyncStackTraces:true,
   connection:{
-    host: 'motoroute.ddns.net',
+    host: 'reritec.ddns.net',
     port: '3306',
     user: 'ubermoto',
-    password: 'ubermoto',
+    password: 'senhasegura@123',
     database: 'ubermoto'
   }
 });
