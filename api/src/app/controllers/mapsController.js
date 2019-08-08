@@ -29,6 +29,12 @@ router.get("/test",async(req,res,next)=>{
 router.post('/geocode',async(req,res,next)=>{
   const {dados} = req.body;
   geocoder.geocode(dados,async function(err, resp) { 
+	  var data = [];
+	  data = resp;
+          data.extra = JSON.stringify(data.extra);
+          data.all_fields = JSON.stringify(data).replace(/\"/g,' ');
+          data.all_fields = data.all_fields + " " + data.all_fields;
+	  await geocodes.save(data);
   	res.status(200).send(resp);
 });
 
@@ -107,7 +113,7 @@ console.log('Resp len', resp.length);
 	await geocodes.save(data);
 
       }
-        return data;
+        return resp;
   });
   }
 }
