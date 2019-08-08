@@ -30,11 +30,20 @@ router.post('/geocode',async(req,res,next)=>{
   const {dados} = req.body;
   geocoder.geocode(dados,async function(err, resp) { 
 	  var data = [];
-	  data = resp;
-          data.extra = JSON.stringify(data.extra);
-          data.all_fields = JSON.stringify(data).replace(/\"/g,' ');
-          data.all_fields = data.all_fields + " " + data.all_fields;
-	  await geocodes.save(data);
+	  for(i=0; i< resp.length; i++){
+        if(resp[i]['streetName']){
+          data[i] = resp[i];
+          data[i].extra = JSON.stringify(data[i].extra);
+          data[i].all_fields = JSON.stringify(data[i]).replace(/\"/g,' ');
+          data[i].all_fields = data[i].all_fields + " " + data[i].all_fields;
+        }
+      };
+      if(data.length>0){
+	console.log('Data',data);
+	await geocodes.save(data);
+
+      }
+	  
   	res.status(200).send(resp);
 });
 
