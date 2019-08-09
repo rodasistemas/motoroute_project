@@ -21,7 +21,8 @@ router.get("/test",async(req,res,next)=>{
   res.send(data);
 });
 router.post('/add',async(req,res,next)=>{
-  res.send('ok');
+   const {dados} = req.body;
+    res.send(dados);
 }
 async function listAll(){
   const banco = await products.list().then((data)=>{return data});
