@@ -27,10 +27,10 @@ router.post('/add',async(req,res,next)=>{
     res.send(resp);
 });
 router.post('/openroute',async(req,res,next)=>{
-   const {dados} = req.body;
+  const {dados} = req.body;
   console.log('Openroute',dados);
-//    const resp = await routes.openroute(dados).then((data)=>{return data});
-//     res.send(resp);
+  const resp = await routes.openroute(dados).then((data)=>{return data});
+  res.send(resp);
 });
 router.post('/updateroute',async(req,res,next)=>{
    const {dados} = req.body;
