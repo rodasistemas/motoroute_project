@@ -31,6 +31,11 @@ router.post('/openroute',async(req,res,next)=>{
    const resp = await routes.openroute(dados).then((data)=>{return data});
     res.send(resp);
 });
+router.post('/updateroute',async(req,res,next)=>{
+   const {dados} = req.body;
+   const resp = await routes.update(dados).then((data)=>{return data});
+    res.send(resp);
+});
 async function listAll(){
   const banco = await products.list().then((data)=>{return data});
   
