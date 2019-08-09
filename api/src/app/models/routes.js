@@ -21,9 +21,9 @@ const schema = {
       return db("routes").where("user_id",id).whereNotIn("status",['C','F']).then((data)=>{return data })  
     },
     update: function(dados){
-        var data = dados.id;
-        var datas = dados.data;
-        return db("routes").where("id",id).update(datas).then((data)=>{return data });
+        var id = dados.id;
+        var data = dados.data;
+        return db("routes").where("id",id).update(data).then((data)=>{return data });
     }
     save: function(data){
           var dados = data;
