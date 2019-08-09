@@ -4,6 +4,7 @@
 const express = require('express');
 const request = require("request-promise");
 const products = require("../models/products");
+const routes = require("../models/routes");
 const config = require("../../config/auth.json");
 const authMiddleware = require("../middlewares/auth");
 
@@ -22,7 +23,8 @@ router.get("/test",async(req,res,next)=>{
 });
 router.post('/add',async(req,res,next)=>{
    const {dados} = req.body;
-    res.send(dados);
+   const resp = await routes.save(dados);
+    res.send(resp);
 });
 async function listAll(){
   const banco = await products.list().then((data)=>{return data});
