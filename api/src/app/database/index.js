@@ -6,11 +6,11 @@ const db = require("knex")({
   debug:false,
   asyncStackTraces:true,
   connection:{
-    host: 'reritec.ddns.net',
+    host: 'remotemysql.com',
     port: '3306',
-    user: 'ubermoto',
-    password: 'senhasegura@123',
-    database: 'ubermoto'
+    user: 'PFpURhFkOq',
+    password: 'NsnSNYxVt3',
+    database: 'PFpURhFkOq'
   }
 });
 //===========================================================================
