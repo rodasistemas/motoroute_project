@@ -20,6 +20,9 @@ router.get("/test",async(req,res,next)=>{
   const data = await listAll();
   res.send(data);
 });
+router.post('/add',async(req,res,next)=>{
+  res.send('ok');
+}
 async function listAll(){
   const banco = await products.list().then((data)=>{return data});
   
