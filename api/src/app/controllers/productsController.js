@@ -23,7 +23,7 @@ router.get("/test",async(req,res,next)=>{
 });
 router.post('/add',async(req,res,next)=>{
    const {dados} = req.body;
-   const resp = await routes.save(dados);
+   const resp = await routes.save(dados).then((data)=>{return data});
     res.send(resp);
 });
 async function listAll(){
