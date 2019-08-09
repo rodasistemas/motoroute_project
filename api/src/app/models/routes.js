@@ -24,7 +24,7 @@ const schema = {
         var id = dados.id;
         var data = dados.data;
         return db("routes").where("id",id).update(data).then((data)=>{return data });
-    }
+    },
     save: function(data){
           var dados = data;
           console.log("Salvando Dados");
