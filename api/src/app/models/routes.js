@@ -17,6 +17,9 @@ const schema = {
     show: function(id){
       return db("routes").where("id",id).then((data)=>{return data })
     },
+    openroute: function(id){
+      return db("routes").where("user_id",id).whereNotIn("status",['C','F']).then((data)=>{return data })  
+    }
     save: function(data){
           var dados = data;
           console.log("Salvando Dados");
