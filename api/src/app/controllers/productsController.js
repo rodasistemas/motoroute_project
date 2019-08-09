@@ -29,8 +29,8 @@ router.post('/add',async(req,res,next)=>{
 router.post('/openroute',async(req,res,next)=>{
    const {dados} = req.body;
   console.log(dados);
-   const resp = await routes.openroute(dados).then((data)=>{return data});
-    res.send(resp);
+//    const resp = await routes.openroute(dados).then((data)=>{return data});
+//     res.send(resp);
 });
 router.post('/updateroute',async(req,res,next)=>{
    const {dados} = req.body;
