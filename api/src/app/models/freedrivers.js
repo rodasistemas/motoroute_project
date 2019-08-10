@@ -3,31 +3,31 @@
 //===========================================================================
 const db = require("../database/index");
 //===========================================================================
-var freedrivers = db("freedrivers");
+var freedrivers = db("freedriver");
 //===========================================================================
 // Schema
 //===========================================================================
 const schema = {
     table: function(){
-        return db("freedrivers");
+        return db("freedriver");
     },
     list: function(){
-      return db("freedrivers").then((data)=>{return data });
+      return db("freedriver").then((data)=>{return data });
     },
     show: function(id){
-      return db("freedrivers").where("id",id).then((data)=>{return data })
+      return db("freedriver").where("id",id).then((data)=>{return data })
     },
     update: function(dados){
         var id = dados.id;
         var data = dados.data;
-        return db("freedrivers").where("id",id).update(data).then((data)=>{return data });
+        return db("freedriver").where("id",id).update(data).then((data)=>{return data });
     },
     save: function(data){
           var dados = data;
           console.log("Salvando Dados");
-          db("freedrivers").clearCounters().clearSelect().clearWhere();
+          db("freedriver").clearCounters().clearSelect().clearWhere();
           console.log(dados);
-          return db("freedrivers").insert(dados)
+          return db("freedriver").insert(dados)
             .then((data)=>{
               return data;
             });
