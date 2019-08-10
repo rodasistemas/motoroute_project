@@ -5,7 +5,7 @@ const express = require('express');
 const request = require("request-promise");
 const products = require("../models/products");
 const routes = require("../models/routes");
-const freedrivers = require("../modesl/freedrivers");
+const freedrivers = require("../models/freedrivers");
 const config = require("../../config/auth.json");
 const authMiddleware = require("../middlewares/auth");
 
