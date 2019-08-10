@@ -15,7 +15,7 @@ const schema = {
       return db("routedriver").then((data)=>{return data });
     },
     show: function(id){
-      return db("routedriver").where(id).then((data)=>{return data })
+      return db("routedriver").innerJoin("routes","routedriver.route_id","routes.id").where(id).then((data)=>{return data })
     },
     delete: function(id){
       return db("routedriver").where(id).del().then((data)=>{return data })
