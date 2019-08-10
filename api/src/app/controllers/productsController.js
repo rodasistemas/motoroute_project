@@ -50,7 +50,8 @@ router.post('/freedriver',async(req,res,next)=>{
 router.post('/routedriver',async(req,res,next)=>{
   const {dados} = req.body;
   console.log('Listando Corridas Free', dados);
-  res.send(dados);
+  const lista = await routedriver.show(dados).then((data)=>{return data});
+  res.send(lista);
 });
 
 
