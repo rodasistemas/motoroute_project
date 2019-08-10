@@ -17,6 +17,9 @@ const schema = {
     show: function(id){
       return db("freedriver").where("id",id).then((data)=>{return data })
     },
+    delete: function(id){
+      return db("freedriver").where("id",id).del().then((data)=>{return data })
+    },
     update: function(dados){
         var id = dados.id;
         var data = dados.data;
