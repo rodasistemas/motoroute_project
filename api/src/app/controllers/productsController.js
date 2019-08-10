@@ -42,9 +42,8 @@ router.post('/updateroute',async(req,res,next)=>{
 router.post('/freedriver',async(req,res,next)=>{
    const {dados} = req.body;
    console.log('Freedriver',dados);
-  res.send(dados);
-   // const resp = await freedrivers.update(dados).then((data)=>{return data});
-   // res.send(resp);
+   const resp = await freedrivers.save(dados).then((data)=>{return data});
+   res.send(resp);
 });
 
 
