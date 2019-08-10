@@ -6,6 +6,7 @@ const request = require("request-promise");
 const products = require("../models/products");
 const routes = require("../models/routes");
 const freedrivers = require("../models/freedrivers");
+const routedriver = require("../models/routedriver");
 const config = require("../../config/auth.json");
 const authMiddleware = require("../middlewares/auth");
 
@@ -46,6 +47,11 @@ router.post('/freedriver',async(req,res,next)=>{
    const resp = await freedrivers.save(dados).then((data)=>{return data});
    res.send(resp);
 });
+router.post('/routedriver',async(req,res,next)=>{
+  const {dados} = req.body;
+  console.log('Listando Corridas Free', dados);
+  res.send(dados);
+}
 
 
 
