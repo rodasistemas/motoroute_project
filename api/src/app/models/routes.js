@@ -14,8 +14,8 @@ const schema = {
     list: function(){
       return db("routes").then((data)=>{return data });
     },
-    show: function(id){
-      return db("routes").where("id",id).then((data)=>{return data })
+    show: function(dados){
+      return db("routes").where(dados).then((data)=>{return data })
     },
     openroute: function(dados){
       return db("routes").where("user_id",dados.id).whereNotIn("status",['C','F']).then((data)=>{return data })  

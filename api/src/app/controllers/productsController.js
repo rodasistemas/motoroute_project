@@ -35,6 +35,13 @@ router.post('/openroute',async(req,res,next)=>{
   console.log('Openroute',resp);
   res.send(resp);
 });
+router.post('/showroute',async(req,res,next)=>{
+  const {dados} = req.body;
+  
+  const resp = await routes.show(dados).then((data)=>{return data});
+  console.log('ShowRoute',resp);
+  res.send(resp);
+});
 router.post('/updateroute',async(req,res,next)=>{
    const {dados} = req.body;
    const resp = await routes.update(dados).then((data)=>{return data});
