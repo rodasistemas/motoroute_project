@@ -54,6 +54,12 @@ router.post('/routedriver',async(req,res,next)=>{
   res.send(lista);
 });
 
+router.post('/addroutedriver',async(req,res,next)=>{
+  const {dados} = req.body;
+  console.log('Salvando Corridas Free', dados);
+  const lista = await routedriver.save(dados).then((data)=>{return data});
+  res.send(lista);
+});
 
 
 async function listAll(){
