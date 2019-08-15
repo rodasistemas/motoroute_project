@@ -53,7 +53,12 @@ router.post('/routedriver',async(req,res,next)=>{
   const lista = await routedriver.show(dados).then((data)=>{return data});
   res.send(lista);
 });
-
+router.post('/routedrivermin',async(req,res,next)=>{
+  const {dados} = req.body;
+  console.log('Listando Corridas Free', dados);
+  const lista = await routedriver.showmin(dados).then((data)=>{return data});
+  res.send(lista);
+});
 router.post('/addroutedriver',async(req,res,next)=>{
   const {dados} = req.body;
   console.log('Salvando Corridas Free', dados);
