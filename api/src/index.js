@@ -29,6 +29,10 @@ io.on('connection', socket=>{
     console.log('driverLocation',data);
     io.emit('driverLocation', data);
   })
+  socket.on('setDriver', data =>{
+    console.log('setDriver',data);
+    io.emit('setDriver', data);
+  })
   socket.on('getClientPosition', () =>{
     console.log('getClientPosition');
     io.emit('getClientPosition');
