@@ -64,7 +64,7 @@ if(dados){
 });
 router.post("/rota",async(req,res,next)=>{
   const {dados} = req.body;
-  console.log(dados);
+  console.log('Rota',dados);
   // Verifica se existe o geocode no banco de dados
   var retorno = JSON.stringify(await getDirections(dados));
   res.status(200).send(retorno);
