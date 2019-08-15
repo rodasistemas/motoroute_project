@@ -39,9 +39,9 @@ io.on('connection', socket=>{
   })
   socket.on('getFreeDrivers', async () =>{
       io.emit('getDriverPosition');
-      console.log('getFreeDrivers');
+
       const response = await freedriver.list();
-      console.log("FreeDrivers",response);
+
       io.emit('showFreeDrivers', response);
     
   })
