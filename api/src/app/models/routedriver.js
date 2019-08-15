@@ -15,7 +15,7 @@ const schema = {
       return db("routedriver").then((data)=>{return data });
     },
 showmin: function(id){
-      return db("routedriver").innerJoin("routes","routedriver.route_id","routes.id").where(id).orderBy("routedriver.distance","ASC").then((data)=>{return data })
+      return db("routedriver").innerJoin("routes","routedriver.route_id","routes.id").where(id).orderBy("routedriver.distance","ASC").then((data)=>{return data[0] })
     },
     show: function(id){
       return db("routedriver").innerJoin("routes","routedriver.route_id","routes.id").where(id).then((data)=>{return data })
