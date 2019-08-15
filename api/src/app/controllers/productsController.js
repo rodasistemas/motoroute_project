@@ -37,7 +37,7 @@ router.post('/openroute',async(req,res,next)=>{
 });
 router.post('/showroute',async(req,res,next)=>{
   const {dados} = req.body;
-  
+  console.log('Dados',dados);
   const resp = await routes.show(dados).then((data)=>{return data});
   console.log('ShowRoute',resp);
   res.send(resp);
