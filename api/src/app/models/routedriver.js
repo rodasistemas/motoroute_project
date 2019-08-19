@@ -24,9 +24,9 @@ showmin: function(id){
       return db("routedriver").where(id).del().then((data)=>{return data })
     },
     update: function(dados){
-        var id = dados.id;
+        var where = dados.where;
         var data = dados.data;
-        return db("routedriver").where("id",id).update(data).then((data)=>{return data });
+        return db("routedriver").where(where).update(data).then((data)=>{return data });
     },
     save: function(data){
           var dados = data;
