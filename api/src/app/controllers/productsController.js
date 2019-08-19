@@ -60,6 +60,12 @@ router.post('/routedriver',async(req,res,next)=>{
   const lista = await routedriver.show(dados).then((data)=>{return data});
   res.send(lista);
 });
+router.post('/resposeroutedriver',async(req,res,next)=>{
+  const {dados} = req.body;
+  console.log('Resposta do Piloto', dados);
+  const update = await routedriver.update(dados).then((data)=>{return data});
+  res.send(update);
+});
 router.post('/routedrivermin',async(req,res,next)=>{
   const {dados} = req.body;
   console.log('Listando Corridas Free', dados);
