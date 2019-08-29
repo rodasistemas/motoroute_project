@@ -84,7 +84,7 @@ router.post('/delroutedriver',async(req,res,next)=>{
 router.post('/addroutedriver',async(req,res,next)=>{
   const {dados} = req.body;
   console.log('Deletando Corridas Piloto',dados);
-  const del = await routedriver.delete({'user_id':dados.user_id, 'route_id':dados.id, 'response_user':'A'});
+  const del = await routedriver.delete({'user_id':dados.user_id, 'route_id':dados.route_id, 'response_user':'A'});
   console.log('Salvando Corridas Piloto', dados);
   const lista = await routedriver.save(dados).then((data)=>{return data});
   res.send(lista);
