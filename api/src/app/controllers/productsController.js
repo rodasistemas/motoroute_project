@@ -76,7 +76,7 @@ router.post('/routedrivermin',async(req,res,next)=>{
 
 router.post('/delroutedriver',async(req,res,next)=>{
   const {dados} = req.body;
-  console.log('Deletando Corridas',dados);
+  console.log('Deletando Pedido de Corrida',dados);
   const del = await routedriver.delete({'route_id':dados.id});
   res.send(del);
 });
