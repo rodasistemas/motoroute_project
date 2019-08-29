@@ -45,7 +45,7 @@ router.post('/showroute',async(req,res,next)=>{
 router.post('/updateroute',async(req,res,next)=>{
    const {dados} = req.body;
    const resp = await routes.update(dados).then((data)=>{return data});
-    res.send(resp);
+    res.send('Rota atualizada');
 });
 router.post('/freedriver',async(req,res,next)=>{
    const {dados} = req.body;
@@ -78,7 +78,7 @@ router.post('/delroutedriver',async(req,res,next)=>{
   const {dados} = req.body;
   console.log('Deletando Pedido de Corrida',dados);
   const del = await routedriver.delete({'route_id':dados.id});
-  res.send(del);
+  res.send('Rota Deletada');
 });
 
 router.post('/addroutedriver',async(req,res,next)=>{
