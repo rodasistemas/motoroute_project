@@ -73,6 +73,14 @@ router.post('/routedrivermin',async(req,res,next)=>{
   console.log('Resultado da Corrida Free',lista);
   res.send(lista);
 });
+
+router.post('/delroutedriver',async(req,res,next)=>{
+  const {dados} = req.body;
+  console.log('Deletando Corridas',dados);
+  const del = await routedriver.delete({'route_id':dados.route_id});
+  res.send(del);
+});
+
 router.post('/addroutedriver',async(req,res,next)=>{
   const {dados} = req.body;
   console.log('Deletando Corridas Piloto',dados);
