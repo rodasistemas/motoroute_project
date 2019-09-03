@@ -21,7 +21,7 @@ const schema = {
       return db("freedriver").where(id).del().then((data)=>{return data })
     },
     clearDrivers: function(){
-        return db("freedriver").raw('SELECT * FROM freedriver WHERE loginAt < CONVERT_TZ(CURTIME(),"+00:00","-04:00")').then((data)=>{return data})
+        return db.knex.raw('SELECT * FROM freedriver WHERE loginAt < CONVERT_TZ(CURTIME(),"+00:00","-04:00")').then((data)=>{return data})
     },
     update: function(dados){
         var id = dados.id;
