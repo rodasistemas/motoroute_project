@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const User = require('../models/users');
+const FreeDriver = require('../models/freedrivers');
 const authConfig = require("../../config/auth.json");
 //===========================================================================
 
@@ -18,7 +19,7 @@ function generateToken(params = {}){
 }
 router.get('/ok',async(req,res)=>{
 	
-	const data = await User.findOne("email","rodasistemas@gmail.com");
+	const data = await FreeDriver.clearDrivers();
 	res.send(data);
 });
 
