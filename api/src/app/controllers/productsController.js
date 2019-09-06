@@ -54,6 +54,12 @@ router.post('/freedriver',async(req,res,next)=>{
    const resp = await freedrivers.save(dados).then((data)=>{return data});
    res.send(resp);
 });
+router.post('/delfreedriver',async(req,res,next)=>{
+   const {dados} = req.body;
+   console.log('Deletando Freedriver',dados);
+   const del = await freedrivers.delete({'user_id':dados.user_id});
+   res.send(del);
+});
 router.post('/routedriver',async(req,res,next)=>{
   const {dados} = req.body;
   console.log('Listando Corridas Free', dados);
