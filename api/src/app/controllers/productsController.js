@@ -56,7 +56,7 @@ router.post('/freedriver',async(req,res,next)=>{
 });
 router.post('/delfreedriver',async(req,res,next)=>{
    const {dados} = req.body;
-   console.log('Deletando Freedriver',dados);
+   console.log('Deletando Freedriver DEL',dados);
    const del = await freedrivers.delete({'user_id':dados.user_id});
    res.send(del);
 });
