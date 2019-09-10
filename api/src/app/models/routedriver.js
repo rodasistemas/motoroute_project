@@ -26,7 +26,13 @@ const schema = {
 	})
     },
     show: function(id){
-      return db("routedriver").innerJoin("routes","routedriver.route_id","routes.id").where(id).then((data)=>{return data })
+      return db("routedriver")
+	.innerJoin("routes","routedriver.route_id","routes.id")
+	.innerJoin("users","users.id","routedriver.user_id")
+	.where(id)
+	.then((data)=>{
+	      return data 
+      })
     },
     delete: function(id){
       return db("routedriver").where(id).del().then((data)=>{return data })
