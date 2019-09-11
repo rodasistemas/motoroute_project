@@ -14,7 +14,7 @@ const router = express.Router();
 
 function generateToken(params = {}){
     return jwt.sign(params, authConfig.secret,{
-        expiresIn: 86400,
+        expiresIn: 43200,
     });
 }
 router.get('/ok',async(req,res)=>{
@@ -27,7 +27,7 @@ router.post('/register',async (req,res) =>{
     const { email } = req.body;
     try{
         if ( await User.findOne({ email }))
-            return res.status(400).send({error: 'User already exists.'});
+            return res.status(400).send({error: 'Ja existe esse usuario.'});
         const user = await User.save(req.body);
         user.password = undefined;
         return res.send({
@@ -35,7 +35,7 @@ router.post('/register',async (req,res) =>{
             token: generateToken({id: user.id})
         });
     } catch(err){
-        return res.status(400).send({error: 'Registration Failed'});
+        return res.status(400).send({error: 'Falha ao Registrar'});
     }
 });
 router.post('/authenticate', async (req,res)=>{
@@ -44,13 +44,13 @@ router.post('/authenticate', async (req,res)=>{
     const user = await User.findOne("email", email);
     if(!user){
 	console.log("User false");
-        res.status(400).send({error:'User not found.'});
+        res.status(400).send({error:'Usuario inexistente.'});
 	}else{
 	
 	console.log(await bcrypt.hash(user.password,10));
     if(! await bcrypt.compare(password,user.password)){
 		
-        return res.status(400).send({error:'Incorrect password.'});
+        return res.status(400).send({error:'Senha invalida'});
 	}
     user.password = undefined;
     res.send({
@@ -64,7 +64,7 @@ router.post('/forgot-password', async (req,res)=>{
     try{
         const user = await User.findOne({email});
         if(!user)
-            res.status(400).send({error: "User not found!"});
+            res.status(400).send({error: "Usuario inexistente!"});
         const token = crypto.randomBytes(20).toString('hex');
         const now = new Date();
         now.setHours(now.getHours()+1);
@@ -100,7 +100,7 @@ router.post('/reset-password', async(req, res)=>{
         const user = await User.findOne({email})
         .select('+passwordResetToken passwordResetExpires');
         if(!user)
-            return res.status(400).send({error: "User not found!"});
+            return res.status(400).send({error: "Usuario inexistente!"});
         if(token !== user.passwordResetToken)
             return res.status(400).send({error: "Token Invalid, try again"});
         const now = new Date();
