@@ -29,6 +29,14 @@ io.on('connection', socket=>{
     console.log('driverLocation',data);
     io.emit('driverLocation', data);
   })
+  socket.on('motoChegou',data=>{
+    console.log('motoChegou',data);
+    io.emit('motoChegou',data);
+  });
+  socket.on('driverFinish',data=>{
+    console.log('driverFinish',data);
+    io.emit('driverFinish',data);
+  });
   socket.on('setDriver', data =>{
     console.log('setDriver',data);
     io.emit('setDriver', data);
@@ -68,6 +76,11 @@ io.on('connection', socket=>{
     console.log(variavel);
   
   });
+  setInterval(async()=>{
+    console.log('Limpa freedrivers');
+    const response = await freedriver.clearDrivers();
+    
+  },1000*60*60);
 });
 
 
