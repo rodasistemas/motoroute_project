@@ -6,11 +6,11 @@ const db = require("knex")({
   debug:false,
   asyncStackTraces:true,
   connection:{
-    host: 'remotemysql.com',
+    host: 'sql141.main-hosting.eu',
     port: '3306',
-    user: 'PFpURhFkOq',
-    password: 'NsnSNYxVt3',
-    database: 'PFpURhFkOq'
+    user: 'u499955700_motor',
+    password: 'Alterar@123',
+    database: 'u499955700_motor'
   }
 });
 //===========================================================================
