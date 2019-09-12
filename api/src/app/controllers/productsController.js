@@ -37,9 +37,9 @@ router.post('/openroute',async(req,res,next)=>{
 });
 router.post('/showroute',async(req,res,next)=>{
   const {dados} = req.body;
-  console.log('Dados',dados);
+  //console.log('Dados',dados);
   const resp = await routes.show(dados).then((data)=>{return data});
-  console.log('ShowRoute',resp);
+  //console.log('ShowRoute',resp);
   res.send(resp);
 });
 router.post('/updateroute',async(req,res,next)=>{
@@ -49,20 +49,20 @@ router.post('/updateroute',async(req,res,next)=>{
 });
 router.post('/freedriver',async(req,res,next)=>{
    const {dados} = req.body;
-   console.log('Deletando Freedriver',dados);
+   //console.log('Deletando Freedriver',dados);
    const del = await freedrivers.delete({'user_id':dados.user_id});
    const resp = await freedrivers.save(dados).then((data)=>{return data});
    res.send(resp);
 });
 router.post('/delfreedriver',async(req,res,next)=>{
    const {dados} = req.body;
-   console.log('Deletando Freedriver DEL',dados);
+   //console.log('Deletando Freedriver DEL',dados);
    const del = await freedrivers.delete({'user_id':dados.user_id});
    res.send(dados);
 });
 router.post('/routedriver',async(req,res,next)=>{
   const {dados} = req.body;
-  console.log('Listando Corridas Free', dados);
+  //console.log('Listando Corridas Free', dados);
   const lista = await routedriver.show(dados).then((data)=>{return data});
   res.send(lista);
 });
@@ -74,9 +74,9 @@ router.post('/resposeroutedriver',async(req,res,next)=>{
 });
 router.post('/routedrivermin',async(req,res,next)=>{
   const {dados} = req.body;
-  console.log('Listando Corridas Free', dados);
+  //console.log('Listando Corridas Free', dados);
   const lista = await routedriver.showmin(dados).then((data)=>{return data});
-  console.log('Resultado da Corrida Free',lista);
+  console.log('Resultado da Corrida Min',lista);
   res.send(lista);
 });
 
