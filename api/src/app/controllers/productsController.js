@@ -70,7 +70,7 @@ router.post('/resposeroutedriver',async(req,res,next)=>{
   const {dados} = req.body;
   console.log('Resposta do Piloto', dados);
   const update = await routedriver.update(dados).then((data)=>{return data});
-  res.send(update);
+  res.send(dados);
 });
 router.post('/routedrivermin',async(req,res,next)=>{
   const {dados} = req.body;
