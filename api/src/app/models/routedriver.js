@@ -40,6 +40,8 @@ const schema = {
     update: function(dados){
         var where = dados.where;
         var data = dados.data;
+	    console.log('Atualiza RouteDriver', where);
+	    console.log('Atualiza RouteDriver', data);
         return db("routedriver").where(where).update(data).then((data)=>{return data });
     },
     save: function(data){
