@@ -7,6 +7,7 @@ const products = require("../models/products");
 const routes = require("../models/routes");
 const freedrivers = require("../models/freedrivers");
 const routedriver = require("../models/routedriver");
+const users = require("../models/users");
 const config = require("../../config/auth.json");
 const authMiddleware = require("../middlewares/auth");
 
@@ -42,6 +43,15 @@ router.post('/showroute',async(req,res,next)=>{
   //console.log('ShowRoute',resp);
   res.send(resp);
 });
+
+router.post('/showuser',async(req,res,next)=>{
+  const {dados} = req.body;
+  //console.log('Dados',dados);
+  const resp = await users.show(dados).then((data)=>{return data});
+  //console.log('ShowRoute',resp);
+  res.send(resp);
+});
+
 router.post('/updateroute',async(req,res,next)=>{
    const {dados} = req.body;
    const resp = await routes.update(dados).then((data)=>{return data});
