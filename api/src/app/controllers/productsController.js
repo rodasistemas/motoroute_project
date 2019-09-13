@@ -47,7 +47,7 @@ router.post('/showroute',async(req,res,next)=>{
 router.post('/showuser',async(req,res,next)=>{
   const {dados} = req.body;
   console.log('Dados User',dados);
-  const resp = await users.show(dados).then((data)=>{return data});
+  const resp = await users.show(dados.id).then((data)=>{return data});
   console.log('ShowUser',resp);
   res.send(resp);
 });
