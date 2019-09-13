@@ -123,7 +123,8 @@ async function listAll(){
   
 }
 async function listOne(id){
-  const banco = await products.show(id).then((data)=>{return data[0]});
+  const banco = await products.show(id).then((data)=>{return data});
+  return banco[0];
 }
 //===========================================================================
 module.exports = app => app.use('/products', router);
