@@ -26,7 +26,7 @@ io.on('connection', socket=>{
     io.emit('clientLocation', data);
   })
   socket.on('driverLocation', data =>{
-    console.log('driverLocation',data);
+   // console.log('driverLocation',data);
     io.emit('driverLocation', data);
   })
   socket.on('motoChegou',data=>{
@@ -42,12 +42,13 @@ io.on('connection', socket=>{
     io.emit('setDriver', data);
   })
   socket.on('driverResponse', data =>{
-    console.log('driverResponse', data);
     io.emit('driverResponse',data);
+    console.log('driverResponse', data);
+    
   });
 
   socket.on('getClientPosition', () =>{
-    console.log('getClientPosition');
+    //console.log('getClientPosition');
     io.emit('getClientPosition');
   })
   socket.on('getDriverPosition', () =>{
@@ -55,18 +56,18 @@ io.on('connection', socket=>{
     io.emit('getDriverPosition');
   })
   socket.on('getFreeDrivers', async () =>{
-      console.log('FreeDrivers');
+      //console.log('FreeDrivers');
       io.emit('getDriverPosition');
 
       const response = await freedriver.list();
-      console.log('FreeDrivers List', response);	
+      //console.log('FreeDrivers List', response);	
       io.emit('showFreeDrivers', response);
     
   })
   
 
   socket.on('driverLocation', data =>{
-    console.log('driverLocation',data);
+    //console.log('driverLocation',data);
     io.emit('driverLocation', data);
   })
 
