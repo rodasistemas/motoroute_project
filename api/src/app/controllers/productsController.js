@@ -24,6 +24,12 @@ router.get("/test",async(req,res,next)=>{
   const data = await listAll();
   res.send(data);
 });
+
+router.post("/getproduct",async(req,res,next)=>{
+  const {dados} = req.body;
+  const data = await listOne(dados.id);
+  res.send(data);
+});
 router.post('/add',async(req,res,next)=>{
    const {dados} = req.body;
    const resp = await routes.save(dados).then((data)=>{return data});
