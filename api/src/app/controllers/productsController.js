@@ -33,7 +33,7 @@ router.post('/openroute',async(req,res,next)=>{
   const {dados} = req.body;
   
   const resp = await routes.openroute(dados).then((data)=>{return data});
-  console.log('Openroute',resp);
+  //console.log('Openroute',resp);
   res.send(resp);
 });
 router.post('/showroute',async(req,res,next)=>{
@@ -86,22 +86,22 @@ router.post('/routedrivermin',async(req,res,next)=>{
   const {dados} = req.body;
   //console.log('Listando Corridas Free', dados);
   const lista = await routedriver.showmin(dados).then((data)=>{return data});
-  console.log('Resultado da Corrida Min',lista);
+  //console.log('Resultado da Corrida Min',lista);
   res.send(lista);
 });
 
 router.post('/delroutedriver',async(req,res,next)=>{
   const {dados} = req.body;
-  console.log('Deletando Pedido de Corrida',dados);
+  //console.log('Deletando Pedido de Corrida',dados);
   const del = await routedriver.delete({'route_id':dados.id});
   res.send('Rota Deletada');
 });
 
 router.post('/addroutedriver',async(req,res,next)=>{
   const {dados} = req.body;
-  console.log('Deletando Corridas Piloto',dados);
+  //console.log('Deletando Corridas Piloto',dados);
   const del = await routedriver.delete({'user_id':dados.user_id, 'route_id':dados.route_id, 'response_user':'A'});
-  console.log('Salvando Corridas Piloto', dados);
+  //console.log('Salvando Corridas Piloto', dados);
   const lista = await routedriver.save(dados).then((data)=>{return res.send(data);});
   
 });
