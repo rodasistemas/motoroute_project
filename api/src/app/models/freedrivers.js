@@ -31,9 +31,9 @@ const schema = {
     },
     save: function(data){
           var dados = data;
-          console.log("Salvando Dados");
+          //console.log("Salvando Dados");
           db("freedriver").clearCounters().clearSelect().clearWhere();
-          console.log(dados);
+          //console.log(dados);
           return db("freedriver").insert(dados)
             .then((data)=>{
               return data;
