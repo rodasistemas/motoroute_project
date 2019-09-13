@@ -27,7 +27,9 @@ router.get("/test",async(req,res,next)=>{
 
 router.post("/getproduct",async(req,res,next)=>{
   const {dados} = req.body;
+  console.log('GetProduct',dados);
   const data = await listOne(dados.id);
+  console.log('Response GetProduct',data);
   res.send(data);
 });
 router.post('/add',async(req,res,next)=>{
