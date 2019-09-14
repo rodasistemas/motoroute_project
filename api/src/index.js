@@ -21,6 +21,11 @@ io.on('connection', socket=>{
   console.log('Socket conectado.');
   console.log(socket.id);
   
+  socket.on('sendMsg', data=>{
+    console.log('sendMsg',data);
+    io.emit('sendMsg',data);
+  });
+  
   socket.on('clientLocation', data =>{
     console.log('clientLocation',data);
     io.emit('clientLocation', data);
