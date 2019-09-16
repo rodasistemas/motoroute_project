@@ -12,6 +12,7 @@ const schema = {
         return db("freedriver");
     },
     list: function(){
+        console.log('Listando Freedriver');
       return db("freedriver").then((data)=>{return data });
     },
     show: function(id){
