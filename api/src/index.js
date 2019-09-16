@@ -38,9 +38,13 @@ io.on('connection', socket=>{
     console.log('motoChegou',data);
     io.emit('motoChegou',data);
   });
-  socket.on('driverFinish',data=>{
-    console.log('driverFinish',data);
-    io.emit('driverFinish',data);
+  socket.on('driverStarted',data=>{
+    console.log('driverStarted',data);
+    io.emit('driverStarted',data);
+  });
+  socket.on('driverFinished',data=>{
+    console.log('driverFinished',data);
+    io.emit('driverFinished',data);
   });
   socket.on('setDriver', data =>{
     console.log('setDriver',data);
