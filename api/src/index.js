@@ -61,11 +61,11 @@ io.on('connection', socket=>{
     io.emit('getDriverPosition');
   })
   socket.on('getFreeDrivers', async () =>{
-      //console.log('FreeDrivers');
+      console.log('FreeDrivers');
       io.emit('getDriverPosition');
 
       const response = await freedriver.list();
-      //console.log('FreeDrivers List', response);	
+      console.log('FreeDrivers List', response);	
       io.emit('showFreeDrivers', response);
     
   })
