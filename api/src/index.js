@@ -29,6 +29,10 @@ io.on('connection', socket=>{
   socket.on('clientLocation', data =>{
     console.log('clientLocation',data);
     io.emit('clientLocation', data);
+  }) 
+  socket.on('chatOn', data =>{
+    console.log('chatOn',data);
+    io.emit('chatOn', data);
   })
   socket.on('driverLocation', data =>{
    // console.log('driverLocation',data);
